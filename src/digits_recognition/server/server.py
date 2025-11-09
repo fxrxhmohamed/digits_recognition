@@ -1,5 +1,7 @@
 import pickle
+
 from fastapi import FastAPI
+
 from digits_recognition.server.config import MODEL_PATH
 from digits_recognition.types.server_types import Item
 
@@ -15,4 +17,3 @@ def read_root():
 def predict_digit(item: Item):
     prediction = model.predict([item.image_data])
     return {"prediction": int(prediction[0])}
- 
